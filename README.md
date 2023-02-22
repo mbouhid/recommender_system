@@ -1,22 +1,18 @@
-<h1 align="center">Credit Limit</h1>
-
-<p align="center">Projeto desenvolvido durante o evento <em>3º Hackday CDS</em> (Comunidade Data Science), utilizando algoritmos de Machine Learning via Python, para solucionar um problema de classificação de clientes. </p>
-
-<p align="center">Objetivos: Simular ambiente de negócio real | Trabalho em equipe | Networking | Aceleração do conhecimento </p>
+<h1 align="center">Health Insurance Cross-selling Prediction</h1>
 
 
-
-![Getting Started](img/credit_img_readme.jpg)
+<img src="img/banner_health_insurance.png" alt="Banner Health Insurance">
 
 Table of Content
 =================
 <p align="center">
  <a href="#about">About</a> •
  <a href="#the-problem">The Problem</a> •
+ <a href="#data-description">Data Description</a> •
  <a href="#goals">Goals</a> •
  <a href="#assumptions">Assumptions</a> •
  <a href="#tools">Tools</a> • 
- <a href="#steps">Steps</a> • 
+ <a href="#execution">Execution</a> • 
  <a href="#solution">Solution</a> • 
  <a href="#how-to-use">How to use</a> • 
  <a href="#lessons-learned">Lessons Learned</a> • 
@@ -29,20 +25,35 @@ Table of Content
 
 # About 
 
-O Billion Bank é um banco digital brasileiro, fundado em 2021. Trabalha hoje com contas digitais, e cartões de crédito. 
+Empresa de seguros de saúde e quer oferecer um novo produto: seguro de automóveis.
 
 # The Problem
 
-Quando um cliente solicita aumento de limite no cartão de crédito, o banco consulta uma empresa de crédito terceira, que retorna uma recomendação: "negar" ou "conceder". Essa resposta é repassada ao cliente. Dado que a empresa de crédito precisa levantar maiores informações de histórico financeiro do cliente com terceiros, o retorno da recomendação ao banco leva até 5 dias úteis!
+Identificar os clientes mais propensos a adquirir um seguro de automóveis (priorizar de maior para o menor).
 
-Tratando-se de um serviço, a cada solicitação de aumento de limite feita por um cliente, o banco tem um custo adicional de consulta. Visando reduzir este custo, em 2022, o banco passou a só aceitar novos pedidos de aumento de limite a cada 3 meses. O banco viu um aumento leve do churn no primeiro semestre, que se acentuou mais no segundo, chegando a um ponto já preocupante. O time de CS fez contato com antigos clientes, e constatou que o principal motivo do churn foi a percepção de burocracia relacionada ao aumento nos limites.
+# Data Description
+
+| **Feature**          | **Definição** |
+|----------------------|----------------|
+| id                   | ID único do cliente|
+| gender               |Sexo do cliente|
+| age                  |Idade do cliente|
+| region_code          |   Código único da região de cada cliente|
+| policy_sales_channel |Código anônimo para o canal de divulgação para o cliente, ou seja. Different Agents, Over Mail, Over Phone, In Person, etc|
+| driving_license      |0 : cliente não possui, 1 : cliente possui|
+| vehicle_age          |idade do veículo|
+| vehicle_damage       |Yes : O cliente teve seu veículo danificado no passado. No: O cliente não teve seu veículo danificado no passado.|
+| previously_insured   |1 : Cliente já possui Seguro Automóvel, 0 : Cliente não possui Seguro Automóvel|
+| annual_premium       |The amount customer needs to pay as premium in the year|
+| vintage              |Número de dias em que o cliente está associado à empresa|
+| response             |1 : O cliente está interessado no novo seguro, 0 : O cliente não está interessado no novo seguro|
 
 # Goals
 
-- Desburocratizar o processo, permitindo que o cliente possa solicitar um novo limite uma vez por semana, tendo uma resposta instantânea.
-- Desativar as consultas de recomendação de aumento de limites feitas hoje com a empresa terceira, que são demoradas e custosas.
-- O modelo deverá avaliar a solicitaçaõ de aumento de limite de cartão de crédito.
-- O modelo irá informar se o banco deverá conceder ou não o aumento do limite de crédito solicitado pelo cliente.
+- Principais Insights sobre os atributos mais relevantes de clientes interessados em adquirir um seguro de automóvel.
+- Qual a porcentagem de clientes interessados em adquirir um seguro de automóvel, o time de vendas conseguirá contatar fazendo 20.000 ligações?
+- E se a capacidade do time de vendas aumentar para 40.000 ligações, qual a porcentagem de clientes interessados em adquirir um seguro de automóvel o time de vendas conseguirá contatar?
+- Quantas ligações o time de vendas precisa fazer para contatar 80% dos clientes interessados em adquirir um seguro de automóvel?
 
 # Planning
 
@@ -119,9 +130,9 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## References
 
-[Kaggle](https://www.kaggle.com/competitions/cdshackdays3)
+[Kaggle](https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction)
 
-[Comunidade Data Science](https://www.comunidadedatascience.com/)
+[Comunidade Data Science](https://comunidadeds.com/)
 
 
 ## Autor
@@ -134,10 +145,6 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ## Team
 
 Marcio Bouhid(https://www.linkedin.com/in/marciobouhid/)
-
-Danillo Barros(https://www.linkedin.com/in/danillo-cordeiro/)
-
-Almir Lopes(https://www.linkedin.com/in/almirmartinslopes/)
 
 
 ## License
